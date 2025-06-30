@@ -4,7 +4,7 @@ dotenv.config();
 
 const { filterTherapy } = require("./filters");
 const { getChatResponse } = require("./openaiClient");
-const { transcribeAudio, speakText } = require("./bashiniClient");
+
 
 admin.initializeApp({
   credential: admin.credential.cert({
