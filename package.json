@@ -1,6 +1,5 @@
 {
   "name": "hestia-backend",
-  "type": "module",
   "description": "Express backend for HESTIA hosted on Render",
   "main": "server.js",
   "scripts": {
