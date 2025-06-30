@@ -1,28 +1,19 @@
 {
-  "name": "functions",
+  "name": "hestia-backend",
   "type": "module",
-  "description": "Cloud Functions for Firebase",
+  "description": "Express backend for HESTIA hosted on Render",
+  "main": "server.js",
   "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "start": "node server.js"
   },
   "engines": {
     "node": "22"
   },
-  "main": "index.js",
   "dependencies": {
-    "axios": "^1.0.0",
+    "axios": "^1.10.0",
     "dotenv": "^16.6.1",
     "express": "^5.1.0",
     "firebase-admin": "^12.7.0",
-    "firebase-functions": "^6.0.1",
     "openai": "^4.104.0"
-  },
-  "devDependencies": {
-    "firebase-functions-test": "^3.1.0"
-  },
-  "private": true
+  }
 }
