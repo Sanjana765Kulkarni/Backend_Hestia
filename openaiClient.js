@@ -27,11 +27,27 @@ async function getChatResponse(userInput) {
 }
 
 // Example usage:
+async function textToSpeech(text, outputFilePath) {
+  const response = await openai.audio.speech.create({
+    model: "tts-1",
+    voice: "nova",
+    input: text,
+  });
+  const buffer = Buffer.from(await response.arrayBuffer());
+  fs.writeFileSync(outputFilePath, buffer);
+  return outputFilePath;
+}
+
 async function handleAudioChat(audioFilePath) {
   const text = await transcribeAudio(audioFilePath);
   const response = await getChatResponse(text);
-  return response;
+  // Always create a new audio file for the chat response
+  const ttsPath = audioFilePath.replace(/\.wav$/, '_response.mp3');
+  await textToSpeech(response, ttsPath);
+  return { response, ttsPath };
 }
+
+module.exports = { transcribeAudio, getChatResponse, handleAudioChat };
 
 let mediaRecorder;
 let audioChunks = [];
