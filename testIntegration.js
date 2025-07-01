@@ -5,7 +5,7 @@ const admin = require('./firebaseFeatures');
 async function testIntegration() {
   try {
     // Use your actual audio file name here
-    const audioFilePath = 'Backend_Hestia\\test_audio.wav';
+    const audioFilePath = 'test_audio.wav';
     const response = await handleAudioChat(audioFilePath);
     console.log('Chat response:', response);
 
