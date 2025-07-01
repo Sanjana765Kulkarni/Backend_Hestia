@@ -16,7 +16,12 @@ app.post("/transcribe", transcribe);
 app.post("/speak", speak);
 app.post("/api/audio-chat", upload.single("audio"), async (req, res) => {
   try {
-    const result = await handleAudioChat(req.file.path);
+    const ext = path.extname(req.file.originalname) || ".mp3";
+    const newPath = req.file.path + ext;
+    fs.renameSync(req.file.path, newPath);
+
+    // ✅ Now pass the renamed file to your handler
+    const result = await handleAudioChat(newPath);
     res.json(result);
   } catch (err) {
     res.status(500).json({ error: err.message });
