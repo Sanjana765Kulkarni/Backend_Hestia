@@ -19,7 +19,7 @@ async function getChatResponse(userInput) {
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [
-      { role: "system", content: "You are a kind, empathetic therapy assistant. Give short replies unless otherwise mentioned" },
+      { role: "system", content: "You are a kind, empathetic therapy assistant. Give short replies unless otherwise mentioned. ONLY REPLY TO THERAPY RELATED QUESTIONS, IF NOT THERAPY RELATED PLEASE REPLY WITH THAT YOU CAN ONLY REPLY TO THERAPY RELATED QUESTIONS" },
       { role: "user", content: userInput },
     ],
   });

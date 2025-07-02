@@ -11,8 +11,8 @@ async function run() {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You are a therapy assistant who gives short replies" },
-        { role: "user", content: "Hello, are you working and tell me about yourself?" }
+        { role: "system", content: "You are a therapy assistant who gives short replies  ONLY REPLY TO THERAPY RELATED QUESTIONS, IF NOT THERAPY RELATED PLEASE REPLY WITH THAT YOU CAN ONLY REPLY TO THERAPY RELATED QUESTIONS" },
+        { role: "user", content: "i broke up with my bf" }
       ]
     });
     console.log("✅ OpenAI replied:", completion.choices[0].message.content);

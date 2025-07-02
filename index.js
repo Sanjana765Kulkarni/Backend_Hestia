@@ -16,9 +16,9 @@ admin.initializeApp({
 
 async function chat(req, res) {
   const userInput = req.body.text;
-  if (!filterTherapy(userInput)) {
-    return res.json({ message: "Sorry, I can only help with therapy-related topics." });
-  }
+  //if (!filterTherapy(userInput)) {
+    //return res.json({ message: "Sorry, I can only help with therapy-related topics." });
+  //}
 
   const reply = await getChatResponse(userInput);
 
